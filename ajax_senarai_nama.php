@@ -13,7 +13,7 @@
 		$t .="<tr align=center style=background-color:gold>";
 	    $t .="<th>Nama</th>";
 	    $t .="<th>Agensi</th>";
-	    $t .="<th>Tindakan</th>";
+	    $t .="<th>Status</th>";
 	    $t .="</tr>";
 
 	    while ($row = mysqli_fetch_array($result)) {
