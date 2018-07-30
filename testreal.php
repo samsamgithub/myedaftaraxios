@@ -14,6 +14,8 @@ include("connection.php");
 		<td class="editku">empat</td>
 		<td class="editku">lima</td>
 		<td class="editku">enam</td>
+		<td class="editku">enam</td>
+		<td class="editku">enam</td>
 	</tr>
 </table>
 
