@@ -53,8 +53,8 @@ session_start();
   	<div class="col-md-8">
 
     	<div id="panel" class="card text-center">
-		  <div style="font-size: 25;font-weight: bold" class="card-header">
-		   <?php echo $row["keterangan"];?>
+		  <div style="font-size: 25;font-weight: bold" class="card-header"><a href="index.php">
+		   <?php echo $row["keterangan"];?></a>
 		  </div>
 		  <div class="card-body">
 		    <h5 class="card-title">Selamat Datang </h5>
