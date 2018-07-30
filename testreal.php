@@ -8,6 +8,7 @@ include("connection.php");
 		<td class="editku">satu</td>
 		<td class="editku">dua</td>
 		<td class="editku">tiga</td>
+		<td class="editku">tiga</td>
 	</tr>
 	<tr>
 		<td class="editku">empat</td>
