@@ -6,12 +6,14 @@
   $sql0 = "select count(*) as jum1 from tbl_peserta";
   $result0 = mysqli_query($conn, $sql0);
   $row0 = mysqli_fetch_array($result0);
+  $peserta=$row0['jum1'];
 
   $sql1 = "select count(*) as jum2 from tbl_kehadiran";
   $result1 = mysqli_query($conn, $sql1);
   $row1 = mysqli_fetch_array($result1);
+  $kehadiran=$row1['jum2'];
 
-  if($row0['jum1']==$row1['jum2']){
+  if($peserta==$kehadiran){
     $warna="green";
   }else{
     $warna="red";
@@ -89,7 +91,11 @@
               <a href="#" data-halaman="listprogram.php" id="memula" class="cuba list-group-item list-group-item-action">Senarai Program</a>
               <?php if($boleh == 1){ ?>
                 <a href="#" id="dua" data-halaman="setupprogram.php" class="cuba list-group-item list-group-item-action">Setup Program</a>
-                <span style="background-color: <?php echo $warna; ?>; color: white; text-align: center;">status</span> 
+                <span style="background-color: <?php echo $warna; ?>; color: white; text-align: center;">
+                   status<br>
+                   tbl_peserta = <?php echo $peserta; ?> <br>
+                   tbl_kehadiran = <?php echo $kehadiran; ?>
+                </span> 
               <?php }?>
             </div>
           </div>

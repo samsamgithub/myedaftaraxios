@@ -68,6 +68,8 @@ session_start();
 		    <div class="row">
 		    	
 		    	<div class="col-md-12" id="listNama">
+            <strong>-Walk in? Sila klik <a data-toggle='modal' data-target='#walkinModal' href='#'>di sini</a>-</strong>
+            <br>
 		    		<img height="50" width="250" src="img/dotts.gif">
 		    		
 		    	</div>
@@ -176,7 +178,8 @@ $(document).ready(function(){
 			      });
   			}//tutup if
   			else{
-  				$('#listNama').html("<img height='50' width='250' src='img/dotts.gif'>");
+          // $('#listNama').html("<img height='50' width='250' src='img/dotts.gif'>");
+  				$('#listNama').html("<strong>-Walk in? Sila klik <a data-toggle='modal' data-target='#walkinModal' href='#'>di sini</a>-</strong><br><img height='50' width='250' src='img/dotts.gif'>");
   			} //tutup else if
     });
 

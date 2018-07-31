@@ -32,7 +32,7 @@
 
 	    $t .="</table>";
 	}else{
-		 $t ="<strong>-Tiada Data. Mohon Daftar Peserta <a data-toggle='modal' data-target='#walkinModal' href='#'>Walk-In</a>-</strong><br><img height='50' width='250' src='img/dotts.gif'>";
+		 $t ="<strong>-Walk in? Sila klik <a data-toggle='modal' data-target='#walkinModal' href='#'>di sini</a>-</strong><br><img height='50' width='250' src='img/dotts.gif'>";
 	}
 
     echo $t;
