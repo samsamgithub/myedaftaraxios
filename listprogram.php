@@ -4,7 +4,7 @@ include("connection.php");
 
 $warnafont="style='color:red;'";
 
-$sql = "SELECT idrec, keterangan, DATE_FORMAT(tarikh,'%d/%m/%Y') as tarikh, tempat FROM tbl_program";
+$sql = "SELECT idrec, keterangan, DATE_FORMAT(tarikh,'%d/%m/%Y') as tarikh, tempat FROM tbl_program where papar=1";
 $result = mysqli_query($conn, $sql);
 ?>
 
