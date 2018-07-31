@@ -13,6 +13,7 @@ $bilrec=0;
 while($row0 = mysqli_fetch_array($result0)){
   $bilrec++;
   $namapeserta = $row0["nama"];
+  $namapeserta=htmlspecialchars($namapeserta, ENT_QUOTES);  //untuk yang ada special char ' cth: dato'
   $emelpeserta = $row0["emel"];
   $agensipeserta = $row0["agensi"];
   $idpeserta = $row0["idpeserta"];

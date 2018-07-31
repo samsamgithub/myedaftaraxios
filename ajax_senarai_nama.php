@@ -19,7 +19,7 @@
 	    while ($row = mysqli_fetch_array($result)) {
 	    	$t .="<tr>";
 	    	// $t .="<td>".$row["idrec"].$row["nama"]."</td>";
-	    	$t .="<td>".$row["nama"]."</td>";
+	    	$t .="<td>".htmlspecialchars_decode($row["nama"])."</td>";
 	    	$t .="<td>".$row["agensi"]."</td>";
 	    	if($row["idstatus"]==0){
 	    		$t .="<td><button type='button' class='btn btn-primary btn-sm kelashadir' data-idnama='".$row["idrec"]."' data-nama='".$row["nama"]."' data-agensi='".$row["agensi"]."' data-idprog='".$row["idprogram"]."' data-action='updateHadir'>Daftar Hadir</button></td>";

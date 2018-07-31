@@ -211,7 +211,8 @@ $resultStatus = mysqli_query($conn, $sqlStatus);
           <tr>
             <td><?php echo $bil; ?></td>
             <td><?php echo $row["id"]; ?></td>
-            <td><?php echo $row["nama"]; ?></td>
+            <!-- <td><?php echo $row["nama"]; ?></td> -->
+            <td><?php echo htmlspecialchars_decode($row["nama"]); ?></td>
             <td><?php echo $row["agensi"]; ?></td>
             <td><?php echo $row["status"]; ?></td>
             <td>

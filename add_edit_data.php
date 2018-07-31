@@ -23,6 +23,7 @@ switch ($jenisAction) {
     case "createPeserta":
         $idprog=$_POST["idProg"];
         $nama=$_POST["namaPeserta"];
+        $nama=htmlspecialchars($nama, ENT_QUOTES);  //untuk yang ada special char ' cth: dato'
         $agensi=$_POST["namaAgensi"];
 
         $berjaya="Maklumat Peserta Berjaya Dimasukkan";
@@ -38,6 +39,7 @@ switch ($jenisAction) {
         // $idprog=$_POST["idProg"];
         $idpeserta=$_POST["idNama"];
         $nama=$_POST["namaPeserta"];
+        $nama=htmlspecialchars($nama, ENT_QUOTES);  //untuk yang ada special char ' cth: dato'
         $agensi=$_POST["namaAgensi"];
         $status=$_POST["status"];
 
@@ -92,6 +94,7 @@ switch ($jenisAction) {
         $idnama=$_POST["kodnama"];
         $idprogram=$_POST["kodprog"];
         $nama=$_POST["namaa"];
+        $nama=htmlspecialchars_decode($nama);  //decode kembali untuk yang ada special char ' cth: dato'
         $agensi=$_POST["agensii"];
 
         $berjaya="<h1>".$nama."</h1><br><h2>".$agensi."</h2>";
@@ -104,11 +107,15 @@ switch ($jenisAction) {
     case "createWalkin":
         $idprog=$_POST["idProg"];
         $nama=$_POST["namaPeserta"];
+        // $nama=htmlspecialchars($nama, ENT_QUOTES);  //untuk yang ada special char ' cth: dato'
         $agensi=$_POST["namaAgensi"];
 
         // $berjaya="<h1>".$nama."</h1><br><h2>".$agensi."</h2>";
 
         $berjaya=$nama." Daripada ".$agensi." Telah Berjaya Didaftarkan";
+
+        $nama=htmlspecialchars($nama, ENT_QUOTES);  //untuk yang ada special char ' cth: dato'
+        
         $sql="INSERT INTO tbl_peserta (nama,agensi,papar) VALUES ('$nama','$agensi',1)";
         mysqli_query($conn,$sql);
         $sql2="INSERT INTO tbl_kehadiran (idprogram,idstatus) VALUES ('$idprog',2)";
