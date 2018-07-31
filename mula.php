@@ -51,7 +51,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 kepala">
-      <input type="text" id="pergike" value="<?php echo $pergike; ?>">
+      <input type="hidden" id="pergike" value="<?php echo $pergike; ?>">
       <div class="tulisan"> </div>
     </div>
 </div>
