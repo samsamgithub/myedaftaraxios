@@ -51,7 +51,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 kepala">
-      <input type="hidden" id="pergike" value="<?php echo $pergike; ?>">
+      <input type="text" id="pergike" value="<?php echo $pergike; ?>">
       <div class="tulisan"> </div>
     </div>
 </div>
@@ -61,7 +61,7 @@
     </div>
     <div class="col-md-6 text-right">
       <label>Selamat Datang <strong> <?php echo $onlineUser; ?> </strong></label>
-      <a href="#" data-toggle="modal" data-target="<?php if($boleh!=1){ echo '#loginModal'; } else{ echo '#logoutModal'; } ?>"><?php if($boleh!=1){ echo "[Login]"; }else{ echo "[Logout]"; }?></a>
+      <a id="loginfocus" href="#" data-toggle="modal" data-target="<?php if($boleh!=1){ echo '#loginModal'; } else{ echo '#logoutModal'; } ?>"><?php if($boleh!=1){ echo "[Login]"; }else{ echo "[Logout]"; }?></a>
     </div>
 </div>
 

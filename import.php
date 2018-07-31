@@ -1,6 +1,7 @@
 <?php
 include("connection.php");
 $idprog=$_POST["example"];
+$bilrec=0;
 
 if(!empty($_FILES["employee_file"]["name"]))
 {
@@ -13,6 +14,7 @@ if(!empty($_FILES["employee_file"]["name"]))
     fgetcsv($file_data);
     while($row = fgetcsv($file_data))
     {
+      $bilrec++;
       $name = mysqli_real_escape_string($conn, $row[0]);
       $agensi = mysqli_real_escape_string($conn, $row[1]);
 

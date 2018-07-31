@@ -2,6 +2,8 @@
 include("libs.php");
 include("connection.php");
 
+$warnafont="style='color:red;'";
+
 $sql = "SELECT idrec, keterangan, DATE_FORMAT(tarikh,'%d/%m/%Y') as tarikh, tempat FROM tbl_program";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -21,7 +23,7 @@ $result = mysqli_query($conn, $sql);
   <tbody>
 
     <?php $bil=0; while($row = mysqli_fetch_array($result)){ $bil++;?>
-    <tr>
+    <tr <?php if($row["tarikh"]==date("d/m/Y")){ echo $warnafont; } ?>>
       <td><?php echo $bil; ?></td>
       <td><?php echo $row["keterangan"]; ?></td>
       <td><?php echo $row["tarikh"]; ?></td>

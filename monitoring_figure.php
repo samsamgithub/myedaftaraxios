@@ -11,6 +11,7 @@
 				$sqlQueryAsas = "SELECT count(t1.nama) as jum, t3.keterangan as nama_prog
 				FROM tbl_peserta t1, tbl_kehadiran t2, tbl_program t3
 				WHERE t1.idrec = t2.idpeserta 
+				AND t1.papar = 1
 				AND t2.idprogram = t3.idrec
 				AND t2.idprogram = '$kod_prog'";
 				

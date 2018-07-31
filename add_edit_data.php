@@ -25,7 +25,7 @@ switch ($jenisAction) {
         $nama=$_POST["namaPeserta"];
         $agensi=$_POST["namaAgensi"];
 
-        $berjaya="Maklumat Program Berjaya Dimasukkan";
+        $berjaya="Maklumat Peserta Berjaya Dimasukkan";
         $sql="INSERT INTO tbl_peserta (nama,agensi,papar) VALUES ('$nama','$agensi',1)";
         mysqli_query($conn,$sql);
         $sql2="INSERT INTO tbl_kehadiran (idprogram,idstatus) VALUES ('$idprog',0)";
@@ -41,7 +41,7 @@ switch ($jenisAction) {
         $agensi=$_POST["namaAgensi"];
         $status=$_POST["status"];
 
-        $berjaya="Maklumat Program Berjaya Dimasukkan";
+        $berjaya="Maklumat Peserta Berjaya Dikemaskini";
         $sql="UPDATE tbl_peserta t1, tbl_kehadiran t2 SET t1.nama='$nama', t1.agensi='$agensi', t2.idstatus='$status'
                 WHERE t1.idrec='$idpeserta' AND t1.idrec=t2.idpeserta";
         mysqli_query($conn,$sql);

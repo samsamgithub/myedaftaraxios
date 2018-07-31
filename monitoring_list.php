@@ -10,6 +10,7 @@
 				$sqlQuery = "SELECT t2.idpeserta, t2.sebab, t1.nama, t1.agensi as alamat, DATE_FORMAT(t2.time_stamp,'%T') as tkh_kemaskini
 				FROM tbl_peserta t1, tbl_kehadiran t2 
 				WHERE t1.idrec = t2.idpeserta 
+				AND t1.papar=1
 				AND t2.idprogram = '$kod_prog'
 				AND t2.idstatus = '$kod_hadir'
 				ORDER BY tkh_kemaskini DESC";
