@@ -3,6 +3,20 @@
   include("libs.php");
   include("connection.php");
 
+  $sql0 = "select count(*) as jum1 from tbl_peserta";
+  $result0 = mysqli_query($conn, $sql0);
+  $row0 = mysqli_fetch_array($result0);
+
+  $sql1 = "select count(*) as jum2 from tbl_kehadiran";
+  $result1 = mysqli_query($conn, $sql1);
+  $row1 = mysqli_fetch_array($result1);
+
+  if($row0['jum1']==$row1['jum2']){
+    $warna="green";
+  }else{
+    $warna="red";
+  }
+
   if(isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] == "yes"){
     $boleh = 1;
     $onlineUser = $_SESSION["siapa"];
@@ -73,7 +87,10 @@
           <div class="col-md-2">
             <div class="list-group">
               <a href="#" data-halaman="listprogram.php" id="memula" class="cuba list-group-item list-group-item-action">Senarai Program</a>
-              <?php if($boleh == 1){ ?><a href="#" id="dua" data-halaman="setupprogram.php" class="cuba list-group-item list-group-item-action">Setup Program</a> <?php }?>
+              <?php if($boleh == 1){ ?>
+                <a href="#" id="dua" data-halaman="setupprogram.php" class="cuba list-group-item list-group-item-action">Setup Program</a>
+                <span style="background-color: <?php echo $warna; ?>; color: white; text-align: center;">status</span> 
+              <?php }?>
             </div>
           </div>
           <div class="col-md-10">
