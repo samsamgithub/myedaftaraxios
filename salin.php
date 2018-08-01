@@ -8,7 +8,7 @@ $sql1 = "select * from tbl_program where idrec='$idprog'";
 $result1 = mysqli_query($conn, $sql1);
 $row1 = mysqli_fetch_array($result1);
 
-$sql0 = "select * from tbl_program where idrec != '$idprog'";
+$sql0 = "select * from tbl_program where idrec != '$idprog' and papar=1";
 $result0 = mysqli_query($conn, $sql0);
 
 ?>

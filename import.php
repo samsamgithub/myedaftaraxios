@@ -15,7 +15,9 @@ if(!empty($_FILES["employee_file"]["name"]))
     while($row = fgetcsv($file_data))
     {
       $bilrec++;
+      // $name = mysqli_real_escape_string($conn, $row[0]);
       $name = mysqli_real_escape_string($conn, $row[0]);
+      // $name=htmlspecialchars($name, ENT_QUOTES);  //untuk yang ada special char ' cth: dato'
       $agensi = mysqli_real_escape_string($conn, $row[1]);
 
       $query1 = "INSERT INTO tbl_peserta
