@@ -76,7 +76,7 @@
     <div class="col-md-6">
     </div>
     <div class="col-md-6 text-right">
-      <label>Selamat Datang <strong> <?php echo $onlineUser; ?> </strong></label>
+      <label>Selamat Datang haha <strong> <?php echo $onlineUser; ?> </strong></label>
       <a id="loginfocus" href="#" data-toggle="modal" data-target="<?php if($boleh!=1){ echo '#loginModal'; } else{ echo '#logoutModal'; } ?>"><?php if($boleh!=1){ echo "[Login]"; }else{ echo "[Logout]"; }?></a>
     </div>
 </div>
