@@ -27,6 +27,36 @@ $result = mysqli_query($conn, $sql);
 </button>
 
 
+
+<form id="testForm" method="post" class="form-horizontal">
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Program</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="namaProg" id="inputEmail3" placeholder="Nama Program" required autocomplete="off">
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Tempat</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="tempatProg" id="inputTempat" placeholder="Tempat" required autocomplete="off">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Test</button>
+              <input type="hidden" name="jenisAction" value="createProgram">
+            </div>
+          </div>
+        </form>
+
+
+
+
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -360,6 +390,28 @@ $result = mysqli_query($conn, $sql);
       $('#tarikhProgH').val(eee);
       $('#tempatProgH').val(fff);
     });
+
+
+$('#testForm').submit(function(){
+    //  alert('masuk');
+     var data = $(this).serialize();
+      // alert(data);
+      axios.post('testaxios.php', data)
+    .then(function (response) {
+      alert('return value '+response.data);
+      // console.log(response);
+    })
+    .catch(function (error) {
+      alert("error");
+      // console.log(error);
+    })
+    .then(function () {
+      alert("selalu papar ");
+      // console.log(error);
+    });
+ });
+
+
 
   } );
 </script>

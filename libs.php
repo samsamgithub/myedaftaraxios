@@ -11,6 +11,7 @@
 <script src="lib/datatable/dataTables.buttons.min.js"></script>
 <script src="lib/datepicker/bootstrap-datepicker.min.js"></script>
 <script src="lib/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+<script src="lib/axios.min.js"></script>
 
 <script src="lib/jszip.min.js"></script>
 <script src="lib/pdfmake.min.js"></script>
