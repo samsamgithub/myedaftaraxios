@@ -28,35 +28,6 @@ $result = mysqli_query($conn, $sql);
 
 
 
-<form id="testForm" method="post" class="form-horizontal">
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Program</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="namaProg" id="inputEmail3" placeholder="Nama Program" required autocomplete="off">
-            </div>
-          </div>
-          
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Tempat</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="tempatProg" id="inputTempat" placeholder="Tempat" required autocomplete="off">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Test</button>
-              <input type="hidden" name="jenisAction" value="createProgram">
-            </div>
-          </div>
-        </form>
-
-
-
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -68,7 +39,7 @@ $result = mysqli_query($conn, $sql);
         </button>
       </div>
       <div class="modal-body">
-        <form id="eventForm" method="post" class="form-horizontal">
+        <form class="form-horizontal toDb" data-pergi="setupprogram.php">
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Program</label>
             <div class="col-sm-10">
@@ -119,7 +90,7 @@ $result = mysqli_query($conn, $sql);
         </button>
       </div>
       <div class="modal-body">
-        <form id="editForm" method="post" class="form-horizontal">
+      <form class="form-horizontal toDb" data-pergi="setupprogram.php">
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Program</label>
             <div class="col-sm-10">
@@ -173,7 +144,7 @@ $result = mysqli_query($conn, $sql);
         </button>
       </div>
       <div class="modal-body">
-        <form id="deleteForm" method="post" class="form-horizontal">
+      <form class="form-horizontal toDb" data-pergi="setupprogram.php">
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Program</label>
             <div class="col-sm-10">
@@ -277,84 +248,84 @@ $result = mysqli_query($conn, $sql);
       format: 'yyyy/mm/dd'
     });
 
-    $('#eventForm').submit(function(e){
-     // alert('masuk');
-      e.preventDefault(); //form will not submitted
-      var pergi = 'setupprogram.php';
-      var sesi = 'urussession.php?pergi='+pergi;
-      var data = $(this).serializeArray();
-      // alert(data);
-//      data.push({proses: 'addprogram', value: 'love'}); //for additional data
-      $.ajax({
-        type: "POST",
-        url: "add_edit_data.php",
-        data: data,
-        dataType: "json",
-        // async: false,
-        success: function(data) {
-//          var obj = jQuery.parseJSON(data);
-          alert(data);
-          $(location).attr('href',sesi);
-          // do what ever you want with the server response
-        },
-        error: function() {
-          alert('silap tuuu');
-        }
-      });
-    });
+//     $('#eventForm').submit(function(e){
+//      // alert('masuk');
+//       e.preventDefault(); //form will not submitted
+//       var pergi = 'setupprogram.php';
+//       var sesi = 'urussession.php?pergi='+pergi;
+//       var data = $(this).serializeArray();
+//       // alert(data);
+// //      data.push({proses: 'addprogram', value: 'love'}); //for additional data
+//       $.ajax({
+//         type: "POST",
+//         url: "add_edit_data.php",
+//         data: data,
+//         dataType: "json",
+//         // async: false,
+//         success: function(data) {
+// //          var obj = jQuery.parseJSON(data);
+//           alert(data);
+//           $(location).attr('href',sesi);
+//           // do what ever you want with the server response
+//         },
+//         error: function() {
+//           alert('silap tuuu');
+//         }
+//       });
+//     });
 
-    $('#editForm').submit(function(e){
-     // alert('masuk');
-      e.preventDefault(); //form will not submitted
-      var pergi = 'setupprogram.php';
-      var sesi = 'urussession.php?pergi='+pergi;
-      var data = $(this).serializeArray();
-      // alert(data);
-//      data.push({proses: 'addprogram', value: 'love'}); //for additional data
-      $.ajax({
-        type: "POST",
-        url: "add_edit_data.php",
-        data: data,
-        dataType: "json",
-        // async: false,
-        success: function(data) {
-//          var obj = jQuery.parseJSON(data);
-          alert(data);
-          $(location).attr('href',sesi);
-          // do what ever you want with the server response
-        },
-        error: function() {
-          alert('silap tuuu');
-        }
-      });
-    });
+//     $('#editForm').submit(function(e){
+//      // alert('masuk');
+//       e.preventDefault(); //form will not submitted
+//       var pergi = 'setupprogram.php';
+//       var sesi = 'urussession.php?pergi='+pergi;
+//       var data = $(this).serializeArray();
+//       // alert(data);
+// //      data.push({proses: 'addprogram', value: 'love'}); //for additional data
+//       $.ajax({
+//         type: "POST",
+//         url: "add_edit_data.php",
+//         data: data,
+//         dataType: "json",
+//         // async: false,
+//         success: function(data) {
+// //          var obj = jQuery.parseJSON(data);
+//           alert(data);
+//           $(location).attr('href',sesi);
+//           // do what ever you want with the server response
+//         },
+//         error: function() {
+//           alert('silap tuuu');
+//         }
+//       });
+//     });
 
 
-    $('#deleteForm').submit(function(e){
-     // alert('masuk');
-      e.preventDefault(); //form will not submitted
-      var pergi = 'setupprogram.php';
-      var sesi = 'urussession.php?pergi='+pergi;
-      var data = $(this).serializeArray();
-      // alert(data);
-//      data.push({proses: 'addprogram', value: 'love'}); //for additional data
-      $.ajax({
-        type: "POST",
-        url: "add_edit_data.php",
-        data: data,
-        dataType: "json",
-        // async: false,
-        success: function(data) {
-//          var obj = jQuery.parseJSON(data);
-          alert(data);
-          $(location).attr('href',sesi);
-          // do what ever you want with the server response
-        },
-        error: function() {
-          alert('silap tuuu');
-        }
-      });
-    });    
+//     $('#deleteForm').submit(function(e){
+//      // alert('masuk');
+//       e.preventDefault(); //form will not submitted
+//       var pergi = 'setupprogram.php';
+//       var sesi = 'urussession.php?pergi='+pergi;
+//       var data = $(this).serializeArray();
+//       // alert(data);
+// //      data.push({proses: 'addprogram', value: 'love'}); //for additional data
+//       $.ajax({
+//         type: "POST",
+//         url: "add_edit_data.php",
+//         data: data,
+//         dataType: "json",
+//         // async: false,
+//         success: function(data) {
+// //          var obj = jQuery.parseJSON(data);
+//           alert(data);
+//           $(location).attr('href',sesi);
+//           // do what ever you want with the server response
+//         },
+//         error: function() {
+//           alert('silap tuuu');
+//         }
+//       });
+//     });    
 
     $('.pilihan').click(function(){
       var pergi = $(this).data('pergi');
@@ -392,22 +363,20 @@ $result = mysqli_query($conn, $sql);
     });
 
 
-$('#testForm').submit(function(){
-    //  alert('masuk');
-     var data = $(this).serialize();
-      // alert(data);
-      axios.post('testaxios.php', data)
+$('.toDb').submit(function(){
+    // var pergi = 'setupprogram.php';
+    var pergi = $(this).data('pergi');
+    var sesi = 'urussession.php?pergi='+pergi;
+    var data = $(this).serialize();
+      axios.post('add_edit_data.php', data)
     .then(function (response) {
       alert('return value '+response.data);
-      // console.log(response);
     })
     .catch(function (error) {
       alert("error");
-      // console.log(error);
     })
     .then(function () {
-      alert("selalu papar ");
-      // console.log(error);
+      $(location).attr('href',sesi);
     });
  });
 
