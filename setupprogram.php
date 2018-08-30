@@ -368,7 +368,7 @@ $('.toDb').submit(function(){
     var pergi = $(this).data('pergi');
     var sesi = 'urussession.php?pergi='+pergi;
     var data = $(this).serialize();
-      axios.post('add_edit_data.php', data)
+    axios.post('add_edit_data.php', data)
     .then(function (response) {
       alert('return value '+response.data);
     })
