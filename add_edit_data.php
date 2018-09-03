@@ -17,7 +17,7 @@ switch ($jenisAction) {
 		$sql="INSERT INTO tbl_program (keterangan,tarikh,tempat,papar) VALUES ('$namaprog','$tarikhprog','$tempatprog',1)";
 		mysqli_query($conn,$sql);
 		mysqli_close($conn);
-		echo json_encode($berjaya);
+		echo $berjaya;
         break;
 
     case "createPeserta":

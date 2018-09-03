@@ -2,7 +2,7 @@
 include("libs.php");
 include("connection.php");
 
-$sql = "SELECT idrec, keterangan, DATE_FORMAT(tarikh,'%d/%m/%Y') as tarikh, tempat FROM tbl_program WHERE papar=1";
+$sql = "SELECT idrec, keterangan, DATE_FORMAT(tarikh,'%d/%m/%Y') as tarikh, tempat FROM tbl_program WHERE papar=1 ORDER BY idrec DESC";
 $result = mysqli_query($conn, $sql);
 ?>
 
@@ -39,18 +39,18 @@ $result = mysqli_query($conn, $sql);
         </button>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal toDb" data-pergi="setupprogram.php">
+        <form class="form-horizontal toDb" data-pergi="setupprogram.php" data-kedb="add_edit_data.php">
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Program</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="namaProg" id="inputEmail3" placeholder="Nama Program" required autocomplete="off">
+              <input type="text" class="form-control" name="namaProg" placeholder="Nama Program" required autocomplete="off">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Tarikh</label>
             <div class="col-sm-4 date">
               <div class="input-group input-append date" id="datePicker">
-                <input type="text" class="form-control" name="tarikhProg" id="inputDate" placeholder="Tarikh" required autocomplete="off">
+                <input type="text" class="form-control" name="tarikhProg" placeholder="Tarikh" required autocomplete="off">
                 <span class="input-group-addon add-on"></span>
               </div>
             </div>
@@ -58,7 +58,7 @@ $result = mysqli_query($conn, $sql);
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tempat</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="tempatProg" id="inputTempat" placeholder="Tempat" required autocomplete="off">
+              <input type="text" class="form-control" name="tempatProg" placeholder="Tempat" required autocomplete="off">
             </div>
           </div>
           <div class="form-group row">
@@ -90,18 +90,18 @@ $result = mysqli_query($conn, $sql);
         </button>
       </div>
       <div class="modal-body">
-      <form class="form-horizontal toDb" data-pergi="setupprogram.php">
+      <form class="form-horizontal toDb" data-pergi="setupprogram.php" data-kedb="add_edit_data.php">
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Program</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="namaProg" id="namaProg" placeholder="Nama Program" required autocomplete="off">
+              <input type="text" class="form-control namaProg" name="namaProg" placeholder="Nama Program" required autocomplete="off">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Tarikh</label>
             <div class="col-sm-4 date">
               <div class="input-group input-append date" id="datePickerEdit">
-                <input type="text" class="form-control" name="tarikhProg" id="tarikhProg" placeholder="Tarikh" required autocomplete="off">
+                <input type="text" class="form-control tarikhProg" name="tarikhProg" placeholder="Tarikh" required autocomplete="off">
                 <span class="input-group-addon add-on"></span>
               </div>
             </div>
@@ -109,14 +109,14 @@ $result = mysqli_query($conn, $sql);
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tempat</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="tempatProg" id="tempatProg" placeholder="Tempat" required autocomplete="off">
+              <input type="text" class="form-control tempatProg" name="tempatProg" placeholder="Tempat" required autocomplete="off">
             </div>
           </div>
           <div class="form-group row">
             <div class="col-sm-10">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
-              <input type="hidden" name="idProgram" id="idProgram" value="">
+              <input type="hidden" class="idProgram" name="idProgram" value="">
               <input type="hidden" name="jenisAction" id="jenisAction" value="updateProgram">
             </div>
           </div>
@@ -144,18 +144,18 @@ $result = mysqli_query($conn, $sql);
         </button>
       </div>
       <div class="modal-body">
-      <form class="form-horizontal toDb" data-pergi="setupprogram.php">
+      <form class="form-horizontal toDb" data-pergi="setupprogram.php" data-kedb="add_edit_data.php">
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Program</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="namaProg" id="namaProgH" placeholder="Nama Program" required readonly>
+              <input type="text" class="form-control namaProg" name="namaProg" placeholder="Nama Program" required readonly>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Tarikh</label>
             <div class="col-sm-4 date">
               <div class="input-group input-append date" id="datePicker">
-                <input type="text" class="form-control" name="tarikhProg" id="tarikhProgH" placeholder="Tarikh" required readonly>
+                <input type="text" class="form-control tarikhProg" name="tarikhProg" placeholder="Tarikh" required readonly>
                 <span class="input-group-addon add-on"></span>
               </div>
             </div>
@@ -163,14 +163,14 @@ $result = mysqli_query($conn, $sql);
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tempat</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="tempatProg" id="tempatProgH" placeholder="Tempat" required readonly>
+              <input type="text" class="form-control tempatProg" name="tempatProg" placeholder="Tempat" required readonly>
             </div>
           </div>
           <div class="form-group row">
             <div class="col-sm-10">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Hapus</button>
-              <input type="hidden" name="idProgram" id="idProgramH" value="">
+              <input type="hidden" class="idProgram" name="idProgram" value="">
               <input type="hidden" name="jenisAction" id="jenisAction" value="deleteProgram">
             </div>
           </div>
@@ -208,11 +208,12 @@ $result = mysqli_query($conn, $sql);
       <td><?php echo $row["tempat"]; ?></td>
       <td>
         
-        <button type="button" class="btn btn-success btn-sm pilihan" data-pergi="senarainama.php?idprog=<?php echo $row["idrec"];?>">Senarai</button>
-        <button type="button" class="btn btn-warning btn-sm kelasprogram" data-toggle="modal" data-target="#editProgram" data-idprogram="<?php echo $row["idrec"]; ?>" data-program="<?php echo $row["keterangan"]; ?>" data-tarikh="<?php echo $row["tarikh"]; ?>" data-tempat="<?php echo $row["tempat"]; ?>">
+        <button type="button" class="btn btn-success btn-sm butang" data-pergi="senarainama.php?idprog=<?php echo $row["idrec"];?>">Senarai</button>
+        <button type="button" class="btn btn-warning btn-sm butang" data-toggle="modal" data-target="#editProgram" data-idprogram="<?php echo $row["idrec"]; ?>" data-program="<?php echo $row["keterangan"]; ?>" data-tarikh="<?php echo $row["tarikh"]; ?>" data-tempat="<?php echo $row["tempat"]; ?>">
         Edit</button>
-        <button type="button" class="btn btn-danger btn-sm kelasprogramhapus" data-toggle="modal" data-target="#deleteProgram" data-idprogram="<?php echo $row["idrec"]; ?>" data-program="<?php echo $row["keterangan"]; ?>" data-tarikh="<?php echo $row["tarikh"]; ?>" data-tempat="<?php echo $row["tempat"]; ?>">
+        <button type="button" class="btn btn-danger btn-sm butang" data-toggle="modal" data-target="#deleteProgram" data-idprogram="<?php echo $row["idrec"]; ?>" data-program="<?php echo $row["keterangan"]; ?>" data-tarikh="<?php echo $row["tarikh"]; ?>" data-tempat="<?php echo $row["tempat"]; ?>">
         Hapus</button>
+        
       </td>
     </tr>
     <?php }?>
@@ -246,141 +247,45 @@ $result = mysqli_query($conn, $sql);
       .datepicker({
       autoclose: true,
       format: 'yyyy/mm/dd'
-    });
+    });  
 
-//     $('#eventForm').submit(function(e){
-//      // alert('masuk');
-//       e.preventDefault(); //form will not submitted
-//       var pergi = 'setupprogram.php';
-//       var sesi = 'urussession.php?pergi='+pergi;
-//       var data = $(this).serializeArray();
-//       // alert(data);
-// //      data.push({proses: 'addprogram', value: 'love'}); //for additional data
-//       $.ajax({
-//         type: "POST",
-//         url: "add_edit_data.php",
-//         data: data,
-//         dataType: "json",
-//         // async: false,
-//         success: function(data) {
-// //          var obj = jQuery.parseJSON(data);
-//           alert(data);
-//           $(location).attr('href',sesi);
-//           // do what ever you want with the server response
-//         },
-//         error: function() {
-//           alert('silap tuuu');
-//         }
-//       });
-//     });
-
-//     $('#editForm').submit(function(e){
-//      // alert('masuk');
-//       e.preventDefault(); //form will not submitted
-//       var pergi = 'setupprogram.php';
-//       var sesi = 'urussession.php?pergi='+pergi;
-//       var data = $(this).serializeArray();
-//       // alert(data);
-// //      data.push({proses: 'addprogram', value: 'love'}); //for additional data
-//       $.ajax({
-//         type: "POST",
-//         url: "add_edit_data.php",
-//         data: data,
-//         dataType: "json",
-//         // async: false,
-//         success: function(data) {
-// //          var obj = jQuery.parseJSON(data);
-//           alert(data);
-//           $(location).attr('href',sesi);
-//           // do what ever you want with the server response
-//         },
-//         error: function() {
-//           alert('silap tuuu');
-//         }
-//       });
-//     });
-
-
-//     $('#deleteForm').submit(function(e){
-//      // alert('masuk');
-//       e.preventDefault(); //form will not submitted
-//       var pergi = 'setupprogram.php';
-//       var sesi = 'urussession.php?pergi='+pergi;
-//       var data = $(this).serializeArray();
-//       // alert(data);
-// //      data.push({proses: 'addprogram', value: 'love'}); //for additional data
-//       $.ajax({
-//         type: "POST",
-//         url: "add_edit_data.php",
-//         data: data,
-//         dataType: "json",
-//         // async: false,
-//         success: function(data) {
-// //          var obj = jQuery.parseJSON(data);
-//           alert(data);
-//           $(location).attr('href',sesi);
-//           // do what ever you want with the server response
-//         },
-//         error: function() {
-//           alert('silap tuuu');
-//         }
-//       });
-//     });    
-
-    $('.pilihan').click(function(){
-      var pergi = $(this).data('pergi');
-     // alert(bbb);
-      //      $(this).addClass('active').siblings().removeClass('active');
-      // $('.utama').load(bbb);
-      var sesi = 'urussession.php?pergi='+pergi;
+    $('.butang').click(function(){
+      var pergi = null;
+      pergi = $(this).data('pergi');
+      if(pergi != null){
+        var sesi = 'urussession.php?pergi='+pergi;
       $(location).attr('href',sesi);
+      }else{
+        var ccc = $(this).data('idprogram');
+        var ddd = $(this).data('program');
+        var eee = $(this).data('tarikh');
+        var fff = $(this).data('tempat');
+        // alert(ccc);
+        //      $(this).addClass('active').siblings().removeClass('active');
+        $('.idProgram').val(ccc);
+        $('.namaProg').val(ddd);
+        $('.tarikhProg').val(eee);
+        $('.tempatProg').val(fff);
+      }
     });
 
-    $('.kelasprogram').click(function(){
-      var ccc = $(this).data('idprogram');
-      var ddd = $(this).data('program');
-      var eee = $(this).data('tarikh');
-      var fff = $(this).data('tempat');
-      // alert(ccc);
-      //      $(this).addClass('active').siblings().removeClass('active');
-      $('#idProgram').val(ccc);
-      $('#namaProg').val(ddd);
-      $('#tarikhProg').val(eee);
-      $('#tempatProg').val(fff);
+    $('.toDb').submit(function(){
+        // var pergi = 'setupprogram.php';
+        var kedb = $(this).data('kedb');
+        var pergi = $(this).data('pergi');
+        var sesi = 'urussession.php?pergi='+pergi;
+        var data = $(this).serialize();
+        axios.post(kedb, data)
+        .then(function (response) {
+          alert(response.data);
+        })
+        .catch(function (error) {
+          alert(error.message);
+        })
+        .then(function () {
+          $(location).attr('href',sesi);
+        });
     });
-
-    $('.kelasprogramhapus').click(function(){
-      var ccc = $(this).data('idprogram');
-      var ddd = $(this).data('program');
-      var eee = $(this).data('tarikh');
-      var fff = $(this).data('tempat');
-      // alert(ccc);
-      //      $(this).addClass('active').siblings().removeClass('active');
-      $('#idProgramH').val(ccc);
-      $('#namaProgH').val(ddd);
-      $('#tarikhProgH').val(eee);
-      $('#tempatProgH').val(fff);
-    });
-
-
-$('.toDb').submit(function(){
-    // var pergi = 'setupprogram.php';
-    var pergi = $(this).data('pergi');
-    var sesi = 'urussession.php?pergi='+pergi;
-    var data = $(this).serialize();
-    axios.post('add_edit_data.php', data)
-    .then(function (response) {
-      alert('return value '+response.data);
-    })
-    .catch(function (error) {
-      alert("error");
-    })
-    .then(function () {
-      $(location).attr('href',sesi);
-    });
- });
-
-
 
   } );
 </script>
