@@ -61,7 +61,7 @@ switch ($jenisAction) {
         $sql="UPDATE tbl_program SET keterangan='$program', tarikh='$tarikh', tempat='$tempat' WHERE idrec='$idprog'";
         mysqli_query($conn,$sql);
         mysqli_close($conn);
-        echo json_encode($berjaya);
+        echo $berjaya;
         break;
 
     case "deletePeserta":
@@ -87,7 +87,7 @@ switch ($jenisAction) {
         $sql="UPDATE tbl_program SET papar=0 WHERE idrec='$idprog'";
         mysqli_query($conn,$sql);
         mysqli_close($conn);
-        echo json_encode($berjaya);
+        echo $berjaya;
         break;
 
     case "updateHadir":
