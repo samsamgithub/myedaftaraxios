@@ -2,6 +2,8 @@
 include("libs.php");
 include("connection.php");
 
+$warnafont="style='color:blue; font-weight:bold'";
+
 $sql = "SELECT idrec, keterangan, DATE_FORMAT(tarikh,'%d/%m/%Y') as tarikh, tempat FROM tbl_program WHERE papar=1 ORDER BY idrec DESC";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -200,7 +202,7 @@ $result = mysqli_query($conn, $sql);
   <tbody>
 
     <?php $bil=0; while($row = mysqli_fetch_array($result)){ $bil++;?>
-    <tr>
+    <tr <?php if($row["tarikh"]==date("d/m/Y")){ echo $warnafont; } ?>>
       <td><?php echo $bil; ?></td>
       <td><?php echo $row["idrec"]; ?></td>
       <td><?php echo $row["keterangan"]; ?></td>
@@ -208,10 +210,10 @@ $result = mysqli_query($conn, $sql);
       <td><?php echo $row["tempat"]; ?></td>
       <td>
         
-        <button type="button" class="btn btn-success btn-sm butang" data-pergi="senarainama.php?idprog=<?php echo $row["idrec"];?>">Senarai</button>
-        <button type="button" class="btn btn-warning btn-sm butang" data-toggle="modal" data-target="#editProgram" data-idprogram="<?php echo $row["idrec"]; ?>" data-program="<?php echo $row["keterangan"]; ?>" data-tarikh="<?php echo $row["tarikh"]; ?>" data-tempat="<?php echo $row["tempat"]; ?>">
+        <button type="button" class="btn btn-success btn-sm butang" data-pergi="senarainama.php?idprog=<?php echo $row['idrec'];?>">Senarai</button>
+        <button type="button" class="btn btn-warning btn-sm butang" data-toggle="modal" data-target="#editProgram" data-idprogram="<?php echo $row['idrec']; ?>" data-program="<?php echo $row['keterangan']; ?>" data-tarikh="<?php echo $row['tarikh']; ?>" data-tempat="<?php echo $row['tempat']; ?>">
         Edit</button>
-        <button type="button" class="btn btn-danger btn-sm butang" data-toggle="modal" data-target="#deleteProgram" data-idprogram="<?php echo $row["idrec"]; ?>" data-program="<?php echo $row["keterangan"]; ?>" data-tarikh="<?php echo $row["tarikh"]; ?>" data-tempat="<?php echo $row["tempat"]; ?>">
+        <button type="button" class="btn btn-danger btn-sm butang" data-toggle="modal" data-target="#deleteProgram" data-idprogram="<?php echo $row['idrec']; ?>" data-program="<?php echo $row['keterangan']; ?>" data-tarikh="<?php echo $row['tarikh']; ?>" data-tempat="<?php echo $row['tempat']; ?>">
         Hapus</button>
         
       </td>
@@ -270,13 +272,13 @@ $result = mysqli_query($conn, $sql);
     });
 
     $('.toDb').submit(function(){
-        // var pergi = 'setupprogram.php';
         var kedb = $(this).data('kedb');
         var pergi = $(this).data('pergi');
         var sesi = 'urussession.php?pergi='+pergi;
         var data = $(this).serialize();
         axios.post(kedb, data)
         .then(function (response) {
+          // $.notify(response.data);
           alert(response.data);
         })
         .catch(function (error) {
